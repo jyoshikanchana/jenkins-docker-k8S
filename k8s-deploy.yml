@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
- name: mavenwebappdeployment
+ name: mavenwebappdeployment-k8s
 spec:
  replicas: 2
  strategy: 
@@ -12,12 +12,12 @@ spec:
      app: mavenwebapp
  template:
   metadata:
-   name: mavenwebapppod
+   name: mavenwebapppod1
    labels:
      app: mavenwebapp	 
   spec: 
     containers:
-    - name: mavenwebappcontainer
+    - name: mavenwebappcontainer1
       image: kanchanajyoshi/jenkins-docker-k8
       imagePullPolicy: Always
       ports:
@@ -26,7 +26,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
- name: mavenwebappsvc
+ name: mavenwebappsvc1
 spec:
   type: LoadBalancer
   selector:
